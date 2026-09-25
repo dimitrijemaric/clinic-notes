@@ -1,4 +1,8 @@
 clinic-notes
+*.exe
+*.db
+*.db-wal
+*.db-shm
 *.o
 *.a
 *.so
@@ -12,4 +16,3 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
-
