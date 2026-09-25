@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Kartoni pacijenata
+Comment=Nalazi pacijenata i sažeci poseta
+Exec=clinic-notes
+Icon=accessories-text-editor
+Terminal=false
+Type=Application
+Categories=Office;MedicalSoftware;
