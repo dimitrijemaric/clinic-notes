@@ -38,40 +38,10 @@ role-based access, audit logging, backups, retention policies, consent handling,
 and the safeguards required by local health-data law. AI summaries are advisory:
 the clinician must verify them.
 
-The Windows native application uses C and Win32 controls, with the Linux
-prototype in `src/` using GTK4. Both share the same SQLite schema and logic.
-To test the Windows app on Linux, see the "Simulation" below or build
-with wine/mingw.
-
-## Windows native app
-
-See [`windows/README.md`](windows/README.md) for build/install details.
-
-## Linux simulation
-
-A GTK4 version of the Windows UI was added in [`simulation/`](simulation) to
-allow UI testing and validation on Linux without Wine. It uses the same SQLite
-and logic as both platforms, including:
-
-- Patient CRUD, visit management, autosave drafts
-- AI summary configuration (same settings schema), automatic refresh on
-  finalization
-- Local, fail-closed text-only anonymization before any AI request
-- Editable print templates (`.docx` export uses libzip; GTK printing uses
-  GTK print dialog)
-- Window drag, keyboard navigation, focus management, tooltips, proper fonts
-- Text extraction from Rich Edit for printing; console simulation of Word
-document pagination with use of libcurl/libjson to fetch Chat Completions
-
-Build:
-```bash
-make -C simulation
-./simulation/clinic-notes
-```
-Test:
-```bash
-make test -C simulation
-```
+The Linux GTK application above can be used to try the equivalent patient,
+visit, summary, print and export workflows on this machine. It does **not** run
+or validate the native Win32 UI; the Windows app must be built and tested on
+Windows (see [`windows/README.md`](windows/README.md)).
 
 The AI request contains only finding text anonymized locally. The application
 never adds the patient's stored name, date of birth, record ID, or visit dates to

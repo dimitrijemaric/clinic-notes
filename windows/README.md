@@ -35,6 +35,12 @@ From a Windows command prompt, run `clinic-notes.exe` after adding MSYS2's
 `ldd clinic-notes.exe` in the UCRT64 terminal. The application itself uses
 only Win32 controls and does not require the MSYS2 shell at runtime.
 
+The Win32 executable has not yet been built or exercised on a Windows host.
+The `privacy.c` tests run on Linux, but they do not validate the Windows UI,
+printing, or network integration. Treat the Windows port as an unverified
+prototype until `make`, `make test`, and the UI workflows have been tested on
+Windows.
+
 ## Data and workflow
 
 - SQLite: `%LOCALAPPDATA%\clinic-notes\clinic.db`. Patient names, dates of birth,
